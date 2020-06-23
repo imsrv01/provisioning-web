@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% block body %}
+    <div class="jumbotron text-center">
+        <h1>Cloud Service Portal</h1>
+    </div>
+  {% if orderid %}
+
+       <div>
+                  <p style="color:green;">Enjoy, service request submitted, order # <a href="{{orderid}}" target="_blank"> {{orderid}}</a></p>
+        </div>
+
+  {% endif %}
+  <form method="post" class="navbar-form navbar-right" action="/createvm">
+    <div class="form-group">
+      <label for="ami" >Region</label>
+      <select class="form-control" id="region" name="region">
+        <option class="placeholder" selected disabled value="">Select</option>
+        <option>us-east-1</option>
+      </select>
+    </div>
+      <div class="form-group">
+        <label for="ami">OS Image</label>
+        <select class="form-control" id="ami" name="ami">
+          <option class="placeholder" selected disabled value="">Select</option>
+          <option>ami-09d95fab7fff3776c</option>
+        </select>
+      </div>
+      <div class="form-group">
+        <label for="instancetype">Instance Type</label>
+        <select class="form-control" id="instancetype" name="instancetype">
+          <option class="placeholder" selected disabled value="">Select</option>
+          <option>t2.micro</option>
+        </select>
+      </div>
+      
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit" id="button-addon2">Request VM</button>
+      </div>
+  </form>
+
+</div>
+
+{% endblock %}
